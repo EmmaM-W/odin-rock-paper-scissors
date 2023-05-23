@@ -10,6 +10,15 @@ function getComputerChoice(){
         return "Scissors";
     }
 }
+function getPlayerChoice(){
+    do {
+        playerInput = prompt("please enter Rock, Paper or Scissors!");
+        playerInput = playerInput.toLowerCase();
+    } while (playerInput != "rock" && playerInput != "paper" && playerInput != "scissors");
+        
+    return capitaliseFirstLetter(playerInput);
+
+}
 function playRound(playerSelection,computerSelection){
     if (playerSelection === computerSelection) {
         return playerSelection + " vs " + computerSelection + "...draw!";
@@ -40,6 +49,11 @@ function playRound(playerSelection,computerSelection){
     }
 
 }
-const playerSelection = "Rock";
+
+function capitaliseFirstLetter(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const playerSelection = getPlayerChoice()
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection,computerSelection));
