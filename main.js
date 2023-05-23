@@ -49,11 +49,27 @@ function playRound(playerSelection,computerSelection){
     }
 
 }
+function playGame(){
+    playerScore = 0;
+    computerScore = 0;
+    for (let index = 0; index < 5; index++) {
+        roundResult = playRound(playerSelection,computerSelection);
+        console.log(roundResult);
+        if (roundResult.includes("win")) {
+            playerScore = playerScore + 1;
+        }
+        if (roundResult.includes("lose")) {
+            computerScore = computerScore +1;
+        }
+        console.log("the score is now  " + playerScore + ":" + computerScore);
+    }
+}
+
 
 function capitaliseFirstLetter(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const playerSelection = getPlayerChoice()
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection,computerSelection));
+playerSelection = getPlayerChoice()
+computerSelection = getComputerChoice();
+playGame();
