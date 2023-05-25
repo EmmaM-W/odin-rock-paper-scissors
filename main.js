@@ -1,3 +1,5 @@
+const btns = document.querySelectorAll('button');
+
 function getComputerChoice(){
     x = Math.floor(Math.random()*3);
     if (x === 0) {
@@ -81,9 +83,13 @@ function playGame(){
     }
 }
 
+btns.forEach((button) => {
+    button.addEventListener('click',getPlayerChoice);
+});
+
 
 function capitaliseFirstLetter(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-playGame();
+//playGame();
