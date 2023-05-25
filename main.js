@@ -53,7 +53,9 @@ function playGame(){
     playerScore = 0;
     computerScore = 0;
     console.log("lets play a 5 game round of Rock, Paper, Scissors");
-    for (let index = 0; index < 5; index++) {
+
+    
+    do {
         playerSelection = getPlayerChoice()
         computerSelection = getComputerChoice();
         roundResult = playRound(playerSelection,computerSelection);
@@ -65,7 +67,8 @@ function playGame(){
             computerScore = computerScore +1;
         }
         console.log("the score is now  " + playerScore + ":" + computerScore);
-    }
+    } while (playerScore < 5 && computerScore < 5);
+    
     console.log("the final score is: " + playerScore + ":" + computerScore);
     if (playerScore > computerScore) {
         console.log("You win the Game!");
@@ -82,6 +85,5 @@ function playGame(){
 function capitaliseFirstLetter(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
 
 playGame();
