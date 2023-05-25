@@ -24,39 +24,31 @@ function playRound(playerSelection,computerSelection){
 
     if (playerSelection === "Rock") {
         if (computerSelection === "Paper") {
-            computerScore = computerScore+ 1;
-            cmptrScore.textContent = computerScore;
-            console.log(computerScore);
+            updateScore("computer");
             return playerSelection + " vs " + computerSelection + "...you lose!";
         }
         if (computerSelection === "Scissors") {
-            playerScore = playerScore+ 1;
-            plyrScore.textContent = playerScore;
-            console.log(playerScore);
+            updateScore("player");
             return playerSelection + " vs " + computerSelection + "...you win!";
         }
     }
     if (playerSelection === "Paper") {
         if (computerSelection === "Scissors") {
-
-            computerScore = computerScore+ 1;
-            cmptrScore.textContent = computerScore;
-            console.log(computerScore);
+            updateScore("computer");
             return playerSelection + " vs " + computerSelection + "...you lose!";
         }
         if (computerSelection === "Rock") {
-            playerScore = playerScore+ 1;
-            plyrScore.textContent = playerScore;
-            console.log(playerScore);
-
+            updateScore("player");
             return playerSelection + " vs " + computerSelection + "...you win!";
         }
     }
     if (playerSelection === "Scissors") {
         if (computerSelection === "Rock") {
+            updateScore("computer");
             return playerSelection + " vs " + computerSelection + "...you lose!";
         }
         if (computerSelection === "Paper") {
+            updateScore("player");
             return playerSelection + " vs " + computerSelection + "...you win!";
         }
     }
@@ -70,4 +62,17 @@ btns.forEach((button) => {
     })
 });
 
+
+function updateScore(winner) {
+    if (winner === "player") {
+        playerScore = playerScore + 1;
+        plyrScore.textContent = playerScore;
+
+    }
+    if (winner == "computer") {
+        computerScore = computerScore +1;
+        cmptrScore.textContent = computerScore;
+    }
+
+}
 //playGame();
