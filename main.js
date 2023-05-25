@@ -1,4 +1,6 @@
 const btns = document.querySelectorAll('button');
+const plyrScore = document.querySelector('#playerScore');
+const cmptrScore = document.querySelector('#computerScore');
 let playerScore = 0;
 let computerScore = 0;
 
@@ -23,11 +25,13 @@ function playRound(playerSelection,computerSelection){
     if (playerSelection === "Rock") {
         if (computerSelection === "Paper") {
             computerScore = computerScore+ 1;
+            cmptrScore.textContent = computerScore;
             console.log(computerScore);
             return playerSelection + " vs " + computerSelection + "...you lose!";
         }
         if (computerSelection === "Scissors") {
             playerScore = playerScore+ 1;
+            plyrScore.textContent = playerScore;
             console.log(playerScore);
             return playerSelection + " vs " + computerSelection + "...you win!";
         }
@@ -36,12 +40,15 @@ function playRound(playerSelection,computerSelection){
         if (computerSelection === "Scissors") {
 
             computerScore = computerScore+ 1;
+            cmptrScore.textContent = computerScore;
             console.log(computerScore);
             return playerSelection + " vs " + computerSelection + "...you lose!";
         }
         if (computerSelection === "Rock") {
             playerScore = playerScore+ 1;
+            plyrScore.textContent = playerScore;
             console.log(playerScore);
+
             return playerSelection + " vs " + computerSelection + "...you win!";
         }
     }
