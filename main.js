@@ -55,10 +55,16 @@ function playRound(playerSelection,computerSelection){
         }
     }
     if (playerScore >= 5 || computerScore >= 5) {
-        alert('GAME OVER');
+        gameOver();
     }
 }
-
+function gameOver(){
+    txtBox.textContent = "Game Over! final score: " + playerScore + ":" + computerScore + " ...play again?";
+    playerScore = 0;
+    computerScore = 0;
+    plyrScore.textContent = playerScore;
+    cmptrScore.textContent = computerScore;
+}
 
 btns.forEach((button) => {
     button.addEventListener('click', function(e){
